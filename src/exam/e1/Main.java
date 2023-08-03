@@ -3,8 +3,13 @@ package exam.e1;
 // Слова должны иметь правильное окончание.
 //Для более высокого балла добавьте недели и сутки.
 //Постарайтесь не выводить данные, значение которых равно 0
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
+
+        Random random = new Random();
+        int sec = random.nextInt(100000) + 1; // Положительные числа до 100
 
     }
 }
