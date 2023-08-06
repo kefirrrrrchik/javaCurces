@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println(701%10);
+        //System.out.println(701%10);
 
         try {
             System.out.print("Введите количество секунд: ");
