@@ -7,10 +7,17 @@ package exam.e1;
 import java.util.Scanner;
 
 public class Main {
+    static String[] secondsArr = {"секунда", "секунды", "секунд"};
+    static String[] minutsArr = {"минута", "минуты", "минут"};
+    static String[] hoursArr = {"час", "часа", "часов"};
+    static String[] daysArr = {"день", "дня", "дней"};
+    static String[] weeksArr = {"неделя", "недели", "недель"};
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         //System.out.println(701%10);
+
 
         try {
             System.out.print("Введите количество секунд: ");
@@ -25,7 +32,12 @@ public class Main {
         } catch (NumberFormatException e) {
             System.out.println("Не корректное число секунд.");
         }
+
+
+
+
     }
+
 
     public static String formatSeconds(int seconds) {
         int weeks = seconds / (7 * 24 * 60 * 60);
@@ -38,38 +50,40 @@ public class Main {
         seconds %= 60;
 
         StringBuilder result = new StringBuilder();
-        if (weeks > 0 && weeks >= 5) {
-            result.append(weeks).append(" недель, ");
+
+        if (weeks > 0) {
+            String text = getText(weeks, weeksArr);
+            result.append(weeks).append(" " + text + " ");
         }
-        if (weeks > 0 && weeks >= 20 && weeks%10 == 1) {
-            result.append(weeks).append(" неделя, ");
-        }
-        if (weeks > 0 && weeks == 1){
-            result.append(weeks).append(" неделя, ");
-        }
-        if (weeks > 0 && weeks > 1 && weeks < 5){
-            result.append(weeks).append(" недели, ");
-        }
-        if (days > 0 && days > 5) {
-            result.append(days).append(" дней, ");
-        }
-        if (days > 0 && days == 1) {
-            result.append(days).append(" день, ");
-        }
-        if (days > 0 && days > 1 && days < 5) {
-            result.append(days).append(" дня, ");
+        if (days > 0) {
+            String text = getText(days, daysArr);
+            result.append(days).append(" " + text + " ");
         }
         if (hours > 0) {
-            result.append(hours).append(" часов, ");
+            String text = getText(hours, hoursArr);
+            result.append(hours).append(" " + text + " ");
         }
         if (minutes > 0) {
-            result.append(minutes).append(" минут, ");
-        }
-        if (seconds > 0) {
-            result.append(seconds).append(" секунд.");
+            String text = getText(minutes, minutsArr);
+            result.append(minutes).append(" " + text + " ");
         }
 
+        if (seconds > 0) {
+            String text = getText(seconds, secondsArr);
+            result.append(seconds).append(" " + text + ".");
+        }
         return result.toString().trim();
     }
 
+    public static String getText ( int number, String[] text)
+    {
+        if (number >= 5 && number <= 20)
+            return text[2];
+        int lastDigit = number % 10;
+        if (lastDigit == 1)
+            return text[0];
+        if (lastDigit == 2 || lastDigit == 3 || lastDigit == 4)
+        return text[1];
+        return text[2];
+    }
 }
