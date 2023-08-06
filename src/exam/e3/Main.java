@@ -52,22 +52,34 @@ public class Main {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 sum += array[i][j];
-                //
-                //
-                //
-                //
-                //
-                //dodelat
-                if (array[i][j] > sum){
-                    averageSum += array[i][j];
 
-                }
             }
         }
 
-        System.out.println("Сумма всех элементов: " + sum);
 
-        System.out.println(averageSum);
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] > sum) {
+                    averageSum += array[i][j];
+                    count++;
+                }
+            }
+        }
+        System.out.println("Сумма всех элементов: " + sum);
+                    if (count>0) {
+                        double avg = (double) averageSum / count;
+                        System.out.println("Average = " + avg);
+                    } else {
+                        System.out.println("ne naideno");
+                    }
+
+
+
+
+
+
+
 
 
     }
