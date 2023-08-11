@@ -1,7 +1,8 @@
 package credit11;
 //Создать файл с текстом, прочитать, подсчитать в тексте количество знаков препинания и слов.
 import java.io.*;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class Main {
@@ -23,18 +24,31 @@ public class Main {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("text.txt"));
             String line;
             int countOfWords = 0;
+            int countOfSymbols =0;
+
             while((line = bufferedReader.readLine()) != null)
             {
                 System.out.println(line);
-                String[] words = line.split("\b");
+                String[] words = line.split("[ ,.]");
                 int countOfWordInLine = 0;
                 for(String word : words) {
-                    System.out.println(word);
+                    //System.out.println(word);
                     if (!word.isEmpty()) countOfWordInLine++;
                 }
                 countOfWords += countOfWordInLine;
+
+
+                int countSymbolsInLine = 0;
+                Pattern pattern = Pattern.compile("[-.?!)(,:;]");
+                Matcher matcher = pattern.matcher(line);
+                while (matcher.find()){
+                    countSymbolsInLine++;
+
+                }
+                countOfSymbols+=countSymbolsInLine;
             }
             System.out.println("кол-во слов = "+countOfWords);
+            System.out.println("количество символов: "+ countOfSymbols);
             bufferedReader.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
