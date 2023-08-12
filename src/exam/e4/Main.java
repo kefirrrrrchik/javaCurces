@@ -6,5 +6,15 @@ package exam.e4;
 public class Main {
     public static void main(String[] args) {
 
+        String text = "  Мама мыла раму, если !    !солнечно. Все :будет хорошо, я узнавала. ";
+        int countOfWords = 0;
+
+        String[] words = text.split("[ -.?!;)(,:]");
+
+        for (String word: words){
+            if (!word.isEmpty()) countOfWords++;
+
+        }
+        System.out.println("Kоличество слов: "+countOfWords);
     }
 }
