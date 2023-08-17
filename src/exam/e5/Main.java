@@ -8,4 +8,7 @@ package exam.e5;
 //В букет может входить несколько цветов одного типа.
 
 public class Main {
+    public static void main(String[] args) {
+
+    }
 }

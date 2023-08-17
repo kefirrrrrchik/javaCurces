@@ -7,11 +7,8 @@ package exam.e6;
 //replaceFirst() - заменяет 1ый элемент на новый любого типа
 //replaceLast() - заменяет 2ой элемент на новый любого типа
 public class Pair {
-    public static void main(String[] args) {
 
 
 
 
-
-    }
 }

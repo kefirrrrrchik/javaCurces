@@ -3,4 +3,5 @@ package exam.e7;
 // и возвращает Map<K, Integer>, где K — значение из массива, а Integer — количество вхождений в массив.
 
 public class Main {
+
 }
